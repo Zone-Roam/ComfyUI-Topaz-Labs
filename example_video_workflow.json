@@ -1,0 +1,169 @@
+{
+  "last_node_id": 6,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "TopazVideoEnhanceNode",
+      "pos": [100, 100],
+      "size": {"0": 500, "1": 700},
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {"name": "output_video_path", "type": "STRING", "links": [1], "shape": 3, "slot_index": 0},
+        {"name": "request_id", "type": "STRING", "links": null, "shape": 3},
+        {"name": "status_info", "type": "STRING", "links": null, "shape": 3}
+      ],
+      "properties": {"Node name for S&R": "TopazVideoEnhanceNode"},
+      "widgets_values": [
+        "/path/to/input/video.mp4",
+        "your_api_key_here",
+        "prob-4 - Proteus General",
+        "/path/to/output/enhanced_video.mp4",
+        0,
+        0,
+        0.0,
+        "mp4",
+        "H264",
+        "Main",
+        "AAC",
+        "Copy",
+        "High"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "TopazVideoInterpolateNode",
+      "pos": [700, 100],
+      "size": {"0": 500, "1": 600},
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "output_video_path", "type": "STRING", "links": [2], "shape": 3, "slot_index": 0},
+        {"name": "request_id", "type": "STRING", "links": null, "shape": 3},
+        {"name": "status_info", "type": "STRING", "links": null, "shape": 3}
+      ],
+      "properties": {"Node name for S&R": "TopazVideoInterpolateNode"},
+      "widgets_values": [
+        "/path/to/input/video.mp4",
+        "your_api_key_here",
+        "apo-8 - Apollo General",
+        "/path/to/output/interpolated_video.mp4",
+        60.0,
+        2.0,
+        true,
+        0.1,
+        "mp4",
+        "H264",
+        "Copy"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "TopazVideoRestoreNode",
+      "pos": [1300, 100],
+      "size": {"0": 500, "1": 650},
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "output_video_path", "type": "STRING", "links": [3], "shape": 3, "slot_index": 0},
+        {"name": "request_id", "type": "STRING", "links": null, "shape": 3},
+        {"name": "status_info", "type": "STRING", "links": null, "shape": 3}
+      ],
+      "properties": {"Node name for S&R": "TopazVideoRestoreNode"},
+      "widgets_values": [
+        "/path/to/old/video.avi",
+        "your_api_key_here",
+        "dtd-4 - Dione Robust",
+        "/path/to/output/restored_video.mp4",
+        "2x",
+        0,
+        0,
+        false,
+        "mp4",
+        "H265",
+        "High"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "ShowText",
+      "pos": [100, 900],
+      "size": {"0": 400, "1": 200},
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {"name": "text", "type": "STRING", "link": 1}
+      ],
+      "properties": {"Node name for S&R": "ShowText"},
+      "widgets_values": ["Enhanced video path will be displayed here"]
+    },
+    {
+      "id": 5,
+      "type": "ShowText",
+      "pos": [700, 900],
+      "size": {"0": 400, "1": 200},
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {"name": "text", "type": "STRING", "link": 2}
+      ],
+      "properties": {"Node name for S&R": "ShowText"},
+      "widgets_values": ["Interpolated video path will be displayed here"]
+    },
+    {
+      "id": 6,
+      "type": "ShowText",
+      "pos": [1300, 900],
+      "size": {"0": 400, "1": 200},
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {"name": "text", "type": "STRING", "link": 3}
+      ],
+      "properties": {"Node name for S&R": "ShowText"},
+      "widgets_values": ["Restored video path will be displayed here"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 4, 0, "STRING"],
+    [2, 2, 0, 5, 0, "STRING"],
+    [3, 3, 0, 6, 0, "STRING"]
+  ],
+  "groups": [
+    {
+      "title": "Video Enhancement",
+      "bounding": [50, 50, 550, 800],
+      "color": "#3f789e",
+      "font_size": 24
+    },
+    {
+      "title": "Frame Interpolation",
+      "bounding": [650, 50, 550, 800],
+      "color": "#a1309b",
+      "font_size": 24
+    },
+    {
+      "title": "Video Restoration",
+      "bounding": [1250, 50, 550, 800],
+      "color": "#b06634",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [0, 0]
+    }
+  },
+  "version": 0.4
+}
